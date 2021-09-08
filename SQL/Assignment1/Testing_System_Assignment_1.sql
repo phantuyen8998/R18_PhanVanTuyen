@@ -69,7 +69,7 @@ CREATE TABLE Exam (
     CategoryID TINYINT,
     Duration TIME,
     CreatorID INT,
-    CreateDate DATETIME
+    CreateDate DATE
 );
 
 CREATE TABLE ExamQuestion (
