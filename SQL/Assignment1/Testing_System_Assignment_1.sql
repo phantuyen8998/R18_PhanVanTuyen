@@ -1,71 +1,79 @@
+DROP DATABASE testingsystem1;
 create database testingsystem1;
 
 use testingsystem1;
 
-create table Department (
-	DepartmentID tinyint,
-    DepartmentName varchar(30)
+CREATE TABLE Department (
+    DepartmentID TINYINT,
+    DepartmentName VARCHAR(30)
 );
 
-create table Position (
-	PositionID tinyint unsigned auto_increment,
-    PositionName enum('Dev','Test','Scrum Master','PM')
+CREATE TABLE Position (
+    PositionID TINYINT UNSIGNED,
+    PositionName ENUM('Dev', 'Test', 'Scrum Master', 'PM')
 );
 
-create table `Account` (
-	AccountID int unsigned auto_increment,
-    Email varchar(30),
-    Username varchar(30),
-    FullName varchar(30),
-    DepartmentID tinyint,
-    PositionID tinyint,
-    CreateDate datetime
+CREATE TABLE `Account` (
+    AccountID INT UNSIGNED,
+    Email VARCHAR(30),
+    Username VARCHAR(30),
+    FullName VARCHAR(30),
+    DepartmentID TINYINT,
+    PositionID TINYINT,
+    CreateDate DATE
 );
 
-create table `Group` (
-	GroupID tinyint unsigned auto_increment,
-    GroupName varchar(30),
-    CreatorID int,
-    CreateDate datetime
+CREATE TABLE `Group` (
+    GroupID TINYINT UNSIGNED,
+    GroupName VARCHAR(30),
+    CreatorID INT,
+    CreateDate DATE
 );
 
-create table GroupAccount (
-	GroupID tinyint,
-    AccountID tinyint,
-    JoinDate datetime
+CREATE TABLE GroupAccount (
+    GroupID TINYINT,
+    AccountID INT,
+    JoinDate DATE
 );
 
-create table TypeQuestion(
-	TypeID tinyint auto_increment,
-    TypeName enum('Essay','Multiple-Choice')
+CREATE TABLE TypeQuestion (
+    TypeID INT,
+    TypeName ENUM('Essay', 'Multiple-Choice')
 );
 
-create table CategoryQuestion (
-	CategoryID tinyint auto_increment,
-    CategoryName enum('Java', '.NET', 'SQL', 'Postman', 'Ruby')
+CREATE TABLE CategoryQuestion (
+    CategoryID TINYINT,
+    CategoryName ENUM('Java', '.NET', 'SQL', 'Postman', 'Ruby')
 );
 
-create table Question (
-	QuestionID tinyint auto_increment,
-    Content varchar(200),
-    CategoryID tinyint,
-    TypeID tinyint,
-    CreatorID tinyint,
-    CreateDate datetime
+CREATE TABLE Question (
+    QuestionID INT,
+    Content VARCHAR(200),
+    CategoryID TINYINT,
+    TypeID INT,
+    CreatorID INT,
+    CreateDate DATE
 );
 
-create table Answer (
-	AnswerID tinyint auto_increment,
-    Content varchar(200),
-    QuestionID tinyint,
-    isCorrect enum('True', 'False')
+CREATE TABLE Answer (
+    AnswerID INT,
+    Content VARCHAR(200),
+    QuestionID INT,
+    isCorrect ENUM('True', 'False')
 );
 
-create table Exam (
-	ExamID tinyint auto_increment,
-    `Code` tinyint,
-    
+CREATE TABLE Exam (
+    ExamID INT,
+    `Code` TINYINT,
+    Title VARCHAR(100),
+    CategoryID TINYINT,
+    Duration TIME,
+    CreatorID INT,
+    CreateDate DATETIME
 );
 
-create table ExamQuestion ();
+CREATE TABLE ExamQuestion (
+    ExamID INT,
+    QuestionID INT
+);
 
