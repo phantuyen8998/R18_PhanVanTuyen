@@ -322,11 +322,12 @@ on a.PositionID = p.PositionID
 group by p.PositionID;
 
 -- Question 11: Thống kê mỗi phòng ban có bao nhiêu dev, test, scrum master, PM
-select d.DepartmentID, d.DepartmentName, count(a.AccountID)
+select d.DepartmentID, d.DepartmentName,p.PositionName, count(a.AccountID) as 'sum'
 from Department d
 left join `Account` a
 on a.DepartmentID = d.DepartmentID
-group by d.DepartmentID;
+cross join Position p
+group by d.DepartmentName, p.PositionName;
 
 -- Question 12: Lấy thông tin chi tiết của câu hỏi bao gồm: thông tin cơ bản của question, loại câu hỏi, ai là người tạo ra câu hỏi, câu trả lời là gì, ...
 Select q.QuestionID, q.Content, q.CategoryID, q.TypeID, q.CreatorID, a.AnswerID
@@ -430,3 +431,4 @@ join GroupAccount ga
 on g.GroupID = ga.GroupID
 group by g.GroupID 
 having count(ga.AccountID) < 7;
+
