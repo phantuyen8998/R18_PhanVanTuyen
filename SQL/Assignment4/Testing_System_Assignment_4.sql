@@ -9,6 +9,7 @@ CREATE TABLE Department (
     DepartmentName VARCHAR(30) unique key
 );
 
+
 insert into Department (DepartmentName) values ('Bao Ve'),
 											   ('Nhan su'),
 											   ('Marketing'),
