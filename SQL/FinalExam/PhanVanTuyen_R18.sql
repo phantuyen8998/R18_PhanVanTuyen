@@ -83,7 +83,7 @@ SELECT * FROM HuongDan;
 -- a) Lấy tất cả các sinh viên chưa có đề tài hướng dẫn
 SELECT sv.masv, sv.hoten, hd.madt
 FROM SinhVien sv
-RIGHT JOIN HuongDan hd
+LEFT JOIN HuongDan hd
 ON sv.masv = hd.masv
 WHERE hd.madt IS NULL
 GROUP BY sv.masv;
